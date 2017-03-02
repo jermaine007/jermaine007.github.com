@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.idea7.top/"/>
-  <updated>2017-02-10T06:58:35.924Z</updated>
+  <updated>2017-03-02T05:53:27.834Z</updated>
   <id>http://www.idea7.top/</id>
   
   <author>
@@ -16,11 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>WOW Font Hacker Plus</title>
+    <link href="http://www.idea7.top/2017/03/02/WOW-Font-Hacker-Plus/"/>
+    <id>http://www.idea7.top/2017/03/02/WOW-Font-Hacker-Plus/</id>
+    <published>2017-03-02T05:08:00.000Z</published>
+    <updated>2017-03-02T05:53:27.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一版字体修改器预览非常不方便，看不到具体修改成什么效果是不是自己想要的字体。所以加了个预览效果，方便查看。&lt;/p&gt;
+&lt;h2 id=&quot;预览效
+    
+    </summary>
+    
+      <category term="游戏" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="编程" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
+    
+      <category term="C#" scheme="http://www.idea7.top/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>WOW字体修改器</title>
     <link href="http://www.idea7.top/2017/02/06/WOW-Font-Hacker/"/>
     <id>http://www.idea7.top/2017/02/06/WOW-Font-Hacker/</id>
     <published>2017-02-06T08:13:00.000Z</published>
-    <updated>2017-02-10T06:58:35.924Z</updated>
+    <updated>2017-03-02T05:52:53.240Z</updated>
     
     <summary type="html">
     
@@ -32,6 +57,12 @@
     
       <category term="游戏" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/"/>
     
+      <category term="编程" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
+    
+      <category term="C#" scheme="http://www.idea7.top/tags/C/"/>
     
   </entry>
   

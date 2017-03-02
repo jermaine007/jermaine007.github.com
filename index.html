@@ -72,6 +72,85 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/03/02/WOW-Font-Hacker-Plus/" title="WOW Font Hacker Plus" itemprop="url">WOW Font Hacker Plus</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="i77" target="_blank" itemprop="author">i77</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-02T05:08:00.000Z" itemprop="datePublished"> 发表于 2017-03-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一版字体修改器预览非常不方便，看不到具体修改成什么效果是不是自己想要的字体。所以加了个预览效果，方便查看。</p>
+<h2 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h2><p>先上效果瞧瞧。</p>
+<p><img src="http://ok26572sg.bkt.clouddn.com/syspreview.png" alt="系统"></p>
+<p><img src="http://ok26572sg.bkt.clouddn.com/localpreview.png" alt="本地"></p>
+<p>预览的字符串是那段非常有名的，O__O…</p>
+<blockquote>
+<p>The quick brown fox jumps over the lazy dog</p>
+</blockquote>
+<h1 id="原理与问题"><a href="#原理与问题" class="headerlink" title="原理与问题"></a>原理与问题</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当前只有TTF字体文件怎么直接获取到字体然后设置给Label标签预览。谷歌一下在StackOverFlow找到了解决方案。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>C#的PrivateFontCollection类提供了 AddFontFile 和 AddMemoryFont，先看MSDN怎么说</p>
+<blockquote>
+<p>The PrivateFontCollection is a collection class for fonts. This class keeps a collection of fonts specifically for an application. The fonts in the collection can include installed fonts as well as fonts that have not been installed on the system.</p>
+</blockquote>
+<p>大致意思就是这个类是专门提供给APP来加载自己特有的字体集合的。<br>读出TTF字体内容加载到内存里。目前仅支持 常规，粗体，斜体这三种样式。要是预览不成功，那不好意思，这个字体嗝屁啦，换个吧。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">PrivateFontCollection privateFontCollection = new PrivateFontCollection()<span class="comment">;</span></div><div class="line"><span class="keyword">byte[] </span><span class="keyword">bytes </span>= File.ReadAllBytes(ttfPath)<span class="comment">;</span></div><div class="line">IntPtr ptr = Marshal.AllocCoTaskMem(<span class="keyword">bytes.Length);</span></div><div class="line">Marshal.Copy(<span class="keyword">bytes, </span><span class="number">0</span>, ptr, <span class="keyword">bytes.Length);</span></div><div class="line">privateFontCollection.<span class="keyword">AddMemoryFont(ptr, </span><span class="keyword">bytes.Length);</span></div><div class="line">Marshal.FreeCoTaskMem(ptr)<span class="comment">;</span></div><div class="line"></div><div class="line">FontFamily fontFamily = privateFontCollection.Families[<span class="number">0</span>]<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><a href="http://ok26572sg.bkt.clouddn.com/WOW%20Font%20Hacker.exe" target="_blank" rel="external">bin,摸我下载</a></p>
+<p><a href="http://ok26572sg.bkt.clouddn.com/FontHacker_V2.0.rar" target="_blank" rel="external">附上源码，摸我下载</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/游戏/">游戏</a>►<a class="article-category-link" href="/categories/游戏/编程/">编程</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/魔兽世界/">魔兽世界</a><a href="/tags/C/">C#</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2017/03/02/WOW-Font-Hacker-Plus/#comments" class="ds-thread-count comments-count-link" data-thread-key="2017/03/02/WOW-Font-Hacker-Plus/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/02/06/WOW-Font-Hacker/" title="WOW字体修改器" itemprop="url">WOW字体修改器</a>
   </h1>
   <p class="article-author">By
@@ -121,9 +200,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/游戏/">游戏</a>
+  <a class="article-category-link" href="/categories/游戏/">游戏</a>►<a class="article-category-link" href="/categories/游戏/编程/">编程</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/魔兽世界/">魔兽世界</a><a href="/tags/C/">C#</a>
+  </div>
 
 </div>
 
@@ -239,7 +323,11 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+			<li><a href="/categories/游戏/" title="游戏">游戏<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/游戏/编程/" title="编程">编程<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -252,7 +340,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/魔兽世界/" title="魔兽世界">魔兽世界<sup>1</sup></a></li>
+				<li><a href="/tags/魔兽世界/" title="魔兽世界">魔兽世界<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C#">C#<sup>2</sup></a></li>
 			
 		
 		</ul>
