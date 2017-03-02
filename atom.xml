@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>灵魂导师</title>
+  <subtitle>天涯远不远？不远！人就在天涯，天涯怎么会远？</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.idea7.top/"/>
+  <updated>2017-02-10T06:58:35.924Z</updated>
+  <id>http://www.idea7.top/</id>
+  
+  <author>
+    <name>i77</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WOW字体修改器</title>
+    <link href="http://www.idea7.top/2017/02/06/WOW-Font-Hacker/"/>
+    <id>http://www.idea7.top/2017/02/06/WOW-Font-Hacker/</id>
+    <published>2017-02-06T08:13:00.000Z</published>
+    <updated>2017-02-10T06:58:35.924Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h3&gt;&lt;p&gt;原理很简单，在魔兽世界安装目录下新建一个Fonts文件夹，然后把字体文件拷贝过去分别命名成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ARHei.ttf&lt;
+    
+    </summary>
+    
+      <category term="游戏" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WOW7.0 德鲁伊一键宏</title>
+    <link href="http://www.idea7.top/2017/01/23/WOW7-DRUID-MARCO/"/>
+    <id>http://www.idea7.top/2017/01/23/WOW7-DRUID-MARCO/</id>
+    <published>2017-01-23T05:04:00.000Z</published>
+    <updated>2017-01-23T05:17:31.124Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;野德-单体输出&quot;&gt;&lt;a href=&quot;#野德-单体输出&quot; class=&quot;headerlink&quot; title=&quot;野德 (单体输出)&quot;&gt;&lt;/a&gt;野德 (单体输出)&lt;/h5&gt;&lt;h6 id=&quot;天赋加点&quot;&gt;&lt;a href=&quot;#天赋加点&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="游戏" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
+    
+  </entry>
+  
+</feed>
