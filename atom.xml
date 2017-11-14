@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.idea7.top/"/>
-  <updated>2017-11-14T05:31:15.576Z</updated>
+  <updated>2017-11-14T05:40:06.029Z</updated>
   <id>http://www.idea7.top/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Code snippets</title>
     <link href="http://www.idea7.top/2017/11/14/Code-snippets/"/>
     <id>http://www.idea7.top/2017/11/14/Code-snippets/</id>
-    <published>2017-11-14T05:08:38.000Z</published>
-    <updated>2017-11-14T05:31:15.576Z</updated>
+    <published>2017-11-14T05:08:00.000Z</published>
+    <updated>2017-11-14T05:40:06.029Z</updated>
     
     <summary type="html">
     
@@ -40,7 +40,7 @@
     <link href="http://www.idea7.top/2017/03/02/WOW-Font-Hacker-Plus/"/>
     <id>http://www.idea7.top/2017/03/02/WOW-Font-Hacker-Plus/</id>
     <published>2017-03-02T05:08:00.000Z</published>
-    <updated>2017-03-02T05:53:27.834Z</updated>
+    <updated>2017-11-14T05:41:09.268Z</updated>
     
     <summary type="html">
     
@@ -49,14 +49,12 @@
     
     </summary>
     
-      <category term="游戏" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/"/>
+      <category term="编程" scheme="http://www.idea7.top/categories/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="编程" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
     
       <category term="C#" scheme="http://www.idea7.top/tags/C/"/>
+    
+      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
     
   </entry>
   
@@ -65,7 +63,7 @@
     <link href="http://www.idea7.top/2017/02/06/WOW-Font-Hacker/"/>
     <id>http://www.idea7.top/2017/02/06/WOW-Font-Hacker/</id>
     <published>2017-02-06T08:13:00.000Z</published>
-    <updated>2017-03-02T05:52:53.240Z</updated>
+    <updated>2017-11-14T05:42:05.808Z</updated>
     
     <summary type="html">
     
@@ -75,14 +73,12 @@
     
     </summary>
     
-      <category term="游戏" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/"/>
+      <category term="编程" scheme="http://www.idea7.top/categories/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="编程" scheme="http://www.idea7.top/categories/%E6%B8%B8%E6%88%8F/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
     
       <category term="C#" scheme="http://www.idea7.top/tags/C/"/>
+    
+      <category term="魔兽世界" scheme="http://www.idea7.top/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/"/>
     
   </entry>
   
