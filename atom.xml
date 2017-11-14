@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.idea7.top/"/>
-  <updated>2017-03-02T05:53:27.834Z</updated>
+  <updated>2017-11-14T05:31:15.576Z</updated>
   <id>http://www.idea7.top/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Code snippets</title>
+    <link href="http://www.idea7.top/2017/11/14/Code-snippets/"/>
+    <id>http://www.idea7.top/2017/11/14/Code-snippets/</id>
+    <published>2017-11-14T05:08:38.000Z</published>
+    <updated>2017-11-14T05:31:15.576Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Webrequest-auto-detect-proxy-settings&quot;&gt;&lt;a href=&quot;#Webrequest-auto-detect-proxy-settings&quot; class=&quot;headerlink&quot; title=&quot;Webrequest auto de
+    
+    </summary>
+    
+      <category term="编程" scheme="http://www.idea7.top/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="C#" scheme="http://www.idea7.top/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>WOW Font Hacker Plus</title>
