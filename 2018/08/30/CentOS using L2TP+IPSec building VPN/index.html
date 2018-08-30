@@ -4,19 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>灵魂导师</title>
+    <title>CentOS下利用L2TP+IPSec搭建VPN服务 | 灵魂导师</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="i77">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="灵魂导师">
-<meta property="og:url" content="http://www.idea7.top/index.html">
+    <meta name="description" content="前言在大天朝因为有墙的存在，使人无法愉快的科学上网。作为一名技术宅，没办法谷歌是无法接受的。空闲也没的办法愉快的刷刷INS，刷刷推特，刷刷油管这算哪门子科学上网。（当然作为一名外企狗，在公司的话是不存在这些情况的，主要是在家里）
+以前也尝试过各式各样的VPN，免费的收费的，但是最后的结果总是不那么愉快，要么不稳定断断续续的被墙，要么干脆被和谐。于是萌生了自己搭建一个VPN的想法，好歹也算个技术宅，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS下利用L2TP+IPSec搭建VPN服务">
+<meta property="og:url" content="http://www.idea7.top/2018/08/30/CentOS using L2TP+IPSec building VPN/index.html">
 <meta property="og:site_name" content="灵魂导师">
+<meta property="og:description" content="前言在大天朝因为有墙的存在，使人无法愉快的科学上网。作为一名技术宅，没办法谷歌是无法接受的。空闲也没的办法愉快的刷刷INS，刷刷推特，刷刷油管这算哪门子科学上网。（当然作为一名外企狗，在公司的话是不存在这些情况的，主要是在家里）
+以前也尝试过各式各样的VPN，免费的收费的，但是最后的结果总是不那么愉快，要么不稳定断断续续的被墙，要么干脆被和谐。于是萌生了自己搭建一个VPN的想法，好歹也算个技术宅，">
+<meta property="og:updated_time" content="2018-08-30T04:36:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="灵魂导师">
+<meta name="twitter:title" content="CentOS下利用L2TP+IPSec搭建VPN服务">
+<meta name="twitter:description" content="前言在大天朝因为有墙的存在，使人无法愉快的科学上网。作为一名技术宅，没办法谷歌是无法接受的。空闲也没的办法愉快的刷刷INS，刷刷推特，刷刷油管这算哪门子科学上网。（当然作为一名外企狗，在公司的话是不存在这些情况的，主要是在家里）
+以前也尝试过各式各样的VPN，免费的收费的，但是最后的结果总是不那么愉快，要么不稳定断断续续的被墙，要么干脆被和谐。于是萌生了自己搭建一个VPN的想法，好歹也算个技术宅，">
 <meta name="twitter:creator" content="@JermaineVon">
 
     
@@ -64,12 +71,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2018/08/30/CentOS using L2TP+IPSec building VPN/" title="CentOS下利用L2TP+IPSec搭建VPN服务" itemprop="url">CentOS下利用L2TP+IPSec搭建VPN服务</a>
@@ -83,9 +88,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在大天朝因为有墙的存在，使人无法愉快的科学上网。作为一名技术宅，没办法谷歌是无法接受的。空闲也没的办法愉快的刷刷INS，刷刷推特，刷刷油管这算哪门子科学上网。（当然作为一名外企狗，在公司的话是不存在这些情况的，主要是在家里）</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建"><span class="toc-number">3.</span> <span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一键部署"><span class="toc-number">4.</span> <span class="toc-text">一键部署</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在大天朝因为有墙的存在，使人无法愉快的科学上网。作为一名技术宅，没办法谷歌是无法接受的。空闲也没的办法愉快的刷刷INS，刷刷推特，刷刷油管这算哪门子科学上网。（当然作为一名外企狗，在公司的话是不存在这些情况的，主要是在家里）</p>
 <p>以前也尝试过各式各样的VPN，免费的收费的，但是最后的结果总是不那么愉快，要么不稳定断断续续的被墙，要么干脆被和谐。于是萌生了自己搭建一个VPN的想法，好歹也算个技术宅，不能辱没这我这一身技术（装x中 别叫醒我）</p>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
 <li>VPS</li>
@@ -238,14 +250,9 @@
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http<span class="variable">s:</span>//git.io/vpnsetup-centos -O /tmp/vpn.<span class="keyword">sh</span> &amp;&amp; <span class="keyword">sh</span> /tmp/vpn.<span class="keyword">sh</span> &amp;&amp; rm -<span class="keyword">f</span> /tmp/vpn.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
 <p>等待安装完成即可, so easy</p>
 <p><strong>最后，请叫我雷锋，技术是用来造福大家的，装完x闪人</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -263,330 +270,89 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"277445847"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/11/14/Code-snippets/" title="Code snippets" itemprop="url">Code snippets</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="i77" target="_blank" itemprop="author">i77</a>
-		
-  <p class="article-time">
-    <time datetime="2017-11-14T13:08:00.000Z" itemprop="datePublished"> 发表于 2017-11-14</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Webrequest-auto-detect-proxy-settings"><a href="#Webrequest-auto-detect-proxy-settings" class="headerlink" title="Webrequest auto detect proxy settings."></a>Webrequest auto detect proxy settings.</h1><p>If NOT SET, Webrequest automatically use the system proxy.</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">WebRequest.DefaultProxy = WebRequest.GetSystemWebProxy()<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>Use DefaultNetworkCredentials to return system proxy credentials.</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">request.Proxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>For example</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">UrlResponse</span>(<span class="params"><span class="keyword">string</span> url</span>)</span></div><div class="line">&#123;</div><div class="line">    HttpWebRequest request = WebRequest.Create(url) <span class="keyword">as</span> HttpWebRequest;</div><div class="line">    request.Proxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;</div><div class="line">    <span class="comment">// Setting the Request method HEAD, you can also use GET too.</span></div><div class="line">    request.Method = <span class="string">"HEAD"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Getting the Web Response.</span></div><div class="line">        <span class="keyword">using</span> (HttpWebResponse response = request.GetResponse() <span class="keyword">as</span> HttpWebResponse)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">// Returns TRUE if the Status code == 200</span></div><div class="line">            <span class="keyword">if</span> (response.StatusCode == HttpStatusCode.OK)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span> (WebException)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Discard WebException and return false;</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Reference:<a href="https://stackoverflow.com/questions/8808052/c-sharp-getting-proxy-settings-from-internet-explorer" target="_blank" rel="external">https://stackoverflow.com/questions/8808052/c-sharp-getting-proxy-settings-from-internet-explorer</a></p>
-<h1 id="WPF-Data-Binding-Trace-amp-CollectionView-CommitEdit-in-DataGrid"><a href="#WPF-Data-Binding-Trace-amp-CollectionView-CommitEdit-in-DataGrid" class="headerlink" title="WPF Data Binding Trace &amp; CollectionView CommitEdit in DataGrid"></a>WPF Data Binding Trace &amp; CollectionView CommitEdit in DataGrid</h1><ul>
-<li>How to trace in WPF data binding</li>
-</ul>
-<ol>
-<li>Add Namespace:</li>
-</ol>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">xmlns:</span>diag=<span class="string">"clr-namespace:System.Diagnostics;assembly=WindowsBase"</span></div></pre></td></tr></table></figure>
-<ol>
-<li>Markup in xaml</li>
-</ol>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;Binding Title, diag:PresentationTraceSources.TraceLevel=High&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> /&gt;</span></span></div></pre></td></tr></table></figure>
-<ul>
-<li>CollectionView Auto CommitEdit in DataGrid</li>
-</ul>
-<p>MUST use native datagrid column, eg. <strong>DataGridTextColumn</strong>.<br>DO NOT use <strong>DataGridTemplateColumn</strong></p>
-<h1 id="Export-canvas-as-image"><a href="#Export-canvas-as-image" class="headerlink" title="Export canvas as image"></a>Export canvas as image</h1><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> size = <span class="keyword">new</span> <span class="type">Size</span>(DragCanvas.Width, DragCanvas.Height);</div><div class="line">RenderTargetBitmap rtb = <span class="keyword">new</span> <span class="type">RenderTargetBitmap</span>((int)size.Width, (int)size.Height, <span class="number">96</span>d, <span class="number">96</span>d, PixelFormats.Default);</div><div class="line"></div><div class="line">DrawingVisual dv = <span class="keyword">new</span> <span class="type">DrawingVisual</span>();</div><div class="line"></div><div class="line"><span class="keyword">using</span> (DrawingContext ctx = dv.RenderOpen())</div><div class="line">&#123;</div><div class="line">    SolidColorBrush brush = <span class="keyword">new</span> <span class="type">SolidColorBrush</span>(_terminalDetails.BackgroundColor);</div><div class="line">    ctx.DrawRectangle(brush, <span class="literal">null</span>, <span class="keyword">new</span> <span class="type">Rect</span>(<span class="keyword">new</span> <span class="type">Point</span>(), size));</div><div class="line">    VisualBrush vb = <span class="keyword">new</span> <span class="type">VisualBrush</span>(DragCanvas);</div><div class="line">    ctx.DrawRectangle(vb, <span class="literal">null</span>, <span class="keyword">new</span> <span class="type">Rect</span>(<span class="keyword">new</span> <span class="type">Point</span>(), size));</div><div class="line">&#125;</div><div class="line">rtb.Render(dv);</div><div class="line"></div><div class="line">PngBitmapEncoder pngEncoder = <span class="keyword">new</span> <span class="type">PngBitmapEncoder</span>();</div><div class="line">pngEncoder.Frames.Add(BitmapFrame.Create(rtb));</div><div class="line"></div><div class="line">System.IO.MemoryStream ms = <span class="keyword">new</span> <span class="type">System</span>.IO.MemoryStream();</div><div class="line"></div><div class="line">pngEncoder.Save(ms);</div><div class="line">ms.Close();</div><div class="line"></div><div class="line">System.IO.File.WriteAllBytes(file, ms.ToArray());</div></pre></td></tr></table></figure>
-<h1 id="Block-the-operation-but-not-block-the-windows-messages-pump"><a href="#Block-the-operation-but-not-block-the-windows-messages-pump" class="headerlink" title="Block the operation but not block the windows messages pump"></a>Block the operation but not block the windows messages pump</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">private <span class="keyword">void</span> WaitForSent()</div><div class="line">&#123;</div><div class="line">    <span class="built_in">List</span>&lt;MessageItem&gt; messages = <span class="keyword">null</span>;</div><div class="line">    lock (messageToSend)</div><div class="line">    &#123;</div><div class="line">        messages = <span class="keyword">new</span> <span class="built_in">List</span>&lt;MessageItem&gt;(<span class="keyword">this</span>.messageToSend.Values);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> manualReset = <span class="keyword">new</span> ManualResetEvent(<span class="keyword">false</span>);</div><div class="line">    <span class="keyword">var</span> timer = <span class="keyword">new</span> System.Timers.Timer(<span class="number">100</span>) &#123; Enabled = <span class="keyword">true</span> &#125;;  </div><div class="line">    <span class="comment">// System.Windows.Forms.Timer cannot work</span></div><div class="line"></div><div class="line">    timer.Elapsed += (o, e) =&gt;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (messages.FindAll(item =&gt; item.IsSent).Count == messageToSend.Count)</div><div class="line">        &#123;</div><div class="line">            manualReset.<span class="built_in">Set</span>();</div><div class="line">            timer.Enabled = <span class="keyword">false</span>;</div><div class="line">            timer.Stop();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    timer.Start();</div><div class="line">    manualReset.WaitOne();</div><div class="line">    manualReset.Close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/C/">C#</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/11/14/Code-snippets/"  title="Code snippets">
+ <strong>下一篇：</strong><br/> 
+ <span>Code snippets
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/02/WOW-Font-Hacker-Plus/" title="WOW Font Hacker Plus" itemprop="url">WOW Font Hacker Plus</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="i77" target="_blank" itemprop="author">i77</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-02T13:08:00.000Z" itemprop="datePublished"> 发表于 2017-03-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一版字体修改器预览非常不方便，看不到具体修改成什么效果是不是自己想要的字体。所以加了个预览效果，方便查看。</p>
-<h2 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h2><p>先上效果瞧瞧。</p>
-<p><img src="http://ok26572sg.bkt.clouddn.com/syspreview.png" alt="系统"></p>
-<p><img src="http://ok26572sg.bkt.clouddn.com/localpreview.png" alt="本地"></p>
-<p>预览的字符串是那段非常有名的，O__O…</p>
-<blockquote>
-<p>The quick brown fox jumps over the lazy dog</p>
-</blockquote>
-<h1 id="原理与问题"><a href="#原理与问题" class="headerlink" title="原理与问题"></a>原理与问题</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当前只有TTF字体文件怎么直接获取到字体然后设置给Label标签预览。谷歌一下在StackOverFlow找到了解决方案。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>C#的PrivateFontCollection类提供了 AddFontFile 和 AddMemoryFont，先看MSDN怎么说</p>
-<blockquote>
-<p>The PrivateFontCollection is a collection class for fonts. This class keeps a collection of fonts specifically for an application. The fonts in the collection can include installed fonts as well as fonts that have not been installed on the system.</p>
-</blockquote>
-<p>大致意思就是这个类是专门提供给APP来加载自己特有的字体集合的。<br>读出TTF字体内容加载到内存里。目前仅支持 常规，粗体，斜体这三种样式。要是预览不成功，那不好意思，这个字体嗝屁啦，换个吧。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">PrivateFontCollection privateFontCollection = new PrivateFontCollection()<span class="comment">;</span></div><div class="line"><span class="keyword">byte[] </span><span class="keyword">bytes </span>= File.ReadAllBytes(ttfPath)<span class="comment">;</span></div><div class="line">IntPtr ptr = Marshal.AllocCoTaskMem(<span class="keyword">bytes.Length);</span></div><div class="line">Marshal.Copy(<span class="keyword">bytes, </span><span class="number">0</span>, ptr, <span class="keyword">bytes.Length);</span></div><div class="line">privateFontCollection.<span class="keyword">AddMemoryFont(ptr, </span><span class="keyword">bytes.Length);</span></div><div class="line">Marshal.FreeCoTaskMem(ptr)<span class="comment">;</span></div><div class="line"></div><div class="line">FontFamily fontFamily = privateFontCollection.Families[<span class="number">0</span>]<span class="comment">;</span></div></pre></td></tr></table></figure>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><a href="http://ok26572sg.bkt.clouddn.com/WOW%20Font%20Hacker.exe" target="_blank" rel="external">bin,摸我下载</a></p>
-<p><a href="http://ok26572sg.bkt.clouddn.com/FontHacker_V2.0.rar" target="_blank" rel="external">附上源码，摸我下载</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/C/">C#</a><a href="/tags/魔兽世界/">魔兽世界</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
+
+
+
+
+
+<section id="comments" class="comment">
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjM3NC84OTM1">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
+</setion>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/02/06/WOW-Font-Hacker/" title="WOW字体修改器" itemprop="url">WOW字体修改器</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="i77" target="_blank" itemprop="author">i77</a>
-		
-  <p class="article-time">
-    <time datetime="2017-02-06T16:13:00.000Z" itemprop="datePublished"> 发表于 2017-02-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>原理很简单，在魔兽世界安装目录下新建一个Fonts文件夹，然后把字体文件拷贝过去分别命名成:</p>
-<ul>
-<li>ARHei.ttf</li>
-<li>ARIALN.ttf</li>
-<li>ARKai_C.ttf</li>
-<li>ARKai_T.ttf</li>
-<li>FZL2JW.ttf</li>
-<li>FZLBJW.ttf</li>
-<li>FZXHLJW.ttf</li>
-<li>ZYHei.ttf</li>
-<li>ZYKai_C.ttf</li>
-<li>ZYKai_T.ttf </li>
-</ul>
-<p>其中，ARXXX这三个和ZYXXX这三个不知道现在版本哪个生效了，就全部都加进去了。</p>
-<p><img src="http://ok26572sg.bkt.clouddn.com/wow.png" alt=""></p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>懒得复制粘贴，又想经常换字体，庆幸自己是一枚码农，用C#写个小工具，可以选择系统自带字体，或者本地字体文件（仅支持ttf格式）</p>
-<p>基于Telerik UI 的Winform，效果如下：</p>
-<p><img src="http://ok26572sg.bkt.clouddn.com/xitong.png" alt="系统"></p>
-<p><img src="http://ok26572sg.bkt.clouddn.com/bendi.png" alt="本地"></p>
-<p><img src="http://ok26572sg.bkt.clouddn.com/success.png" alt="设置成功"></p>
-<p>由于本人强迫症，只想要一个exe，不想带其他引用的dll，所以只能通过ILMerge工具将主程序和dll压成一个exe</p>
-<p>通过on successful build 加上 Post-build 事件来实现</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> exist <span class="string">"<span class="variable">$(ProjectDir)</span>ILMerge.exe"</span> <span class="string">"<span class="variable">$(ProjectDir)</span>ILMerge.exe"</span> /target:winexe /out:<span class="string">"<span class="variable">$(TargetDir)</span>WOW Font Hacker.exe"</span> <span class="string">"<span class="variable">$(TargetDir)</span><span class="variable">$(TargetFileName)</span>"</span> <span class="string">"<span class="variable">$(TargetDir)</span>Telerik.WinControls.dll"</span> <span class="string">"<span class="variable">$(TargetDir)</span>Telerik.WinControls.UI.dll"</span> <span class="string">"<span class="variable">$(TargetDir)</span>TelerikCommon.dll"</span> <span class="string">"<span class="variable">$(TargetDir)</span>Telerik.WinControls.Themes.Office2013Light.dll"</span></div></pre></td></tr></table></figure>
-<p><a href="http://ok26572sg.bkt.clouddn.com/FontHacker.rar" target="_blank" rel="external">附上源码，点我下载</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/C/">C#</a><a href="/tags/魔兽世界/">魔兽世界</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/01/23/WOW7-DRUID-MARCO/" title="WOW7.0 德鲁伊一键宏" itemprop="url">WOW7.0 德鲁伊一键宏</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="i77" target="_blank" itemprop="author">i77</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-23T13:04:00.000Z" itemprop="datePublished"> 发表于 2017-01-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h5 id="野德-单体输出"><a href="#野德-单体输出" class="headerlink" title="野德 (单体输出)"></a>野德 (单体输出)</h5><h6 id="天赋加点"><a href="#天赋加点" class="headerlink" title="天赋加点"></a>天赋加点</h6><p><img src="http://ok26572sg.bkt.clouddn.com/tianfu.png" alt=""></p>
-<h6 id="手动插入宏-单体"><a href="#手动插入宏-单体" class="headerlink" title="手动插入宏 单体"></a>手动插入宏 单体</h6><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#showtooltip</span></div><div class="line">/Startattack</div><div class="line">/castsequence reset=<span class="number">5</span> 斜掠,野蛮咆哮,撕碎,撕碎,撕碎,撕碎,割裂,撕碎,撕碎,撕碎,撕碎,凶猛撕咬</div><div class="line">/<span class="keyword">cast</span> 猛虎之怒</div><div class="line">/<span class="keyword">cast</span> 狂暴</div><div class="line">/script UIErrorsFrame:<span class="type">Clear</span>()</div></pre></td></tr></table></figure>
-<h5 id="熊德-守护"><a href="#熊德-守护" class="headerlink" title="熊德 (守护)"></a>熊德 (守护)</h5><h6 id="天赋加点-1"><a href="#天赋加点-1" class="headerlink" title="天赋加点"></a>天赋加点</h6><p><img src="http://ok26572sg.bkt.clouddn.com/xiongde.png" alt=""></p>
-<h6 id="手动插入宏-单体-1"><a href="#手动插入宏-单体-1" class="headerlink" title="手动插入宏 单体"></a>手动插入宏 单体</h6><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#showtooltip</span></div><div class="line">/Startattack</div><div class="line">/castsequence reset=<span class="number">5</span> 裂伤,痛击,横扫,横扫</div><div class="line">/<span class="keyword">cast</span> 重殴</div></pre></td></tr></table></figure>
-<p><strong> 一个全职业的宏，<a href="http://ok26572sg.bkt.clouddn.com/2017.1.10.rar" target="_blank" rel="external">点我下载</a> (需要安装GS插件) </strong></p>
-<p>来自: <a href="http://nga.178.com/read.php?&amp;tid=9623194" target="_blank" rel="external">http://nga.178.com/read.php?&amp;tid=9623194</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/游戏/">游戏</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/魔兽世界/">魔兽世界</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建"><span class="toc-number">3.</span> <span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一键部署"><span class="toc-number">4.</span> <span class="toc-text">一键部署</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -751,8 +517,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
@@ -817,4 +611,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>

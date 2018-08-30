@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.idea7.top/"/>
-  <updated>2017-11-14T13:40:06.000Z</updated>
+  <updated>2018-08-30T04:36:44.000Z</updated>
   <id>http://www.idea7.top/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS下利用L2TP+IPSec搭建VPN服务</title>
+    <link href="http://www.idea7.top/2018/08/30/CentOS%20using%20L2TP+IPSec%20building%20VPN/"/>
+    <id>http://www.idea7.top/2018/08/30/CentOS using L2TP+IPSec building VPN/</id>
+    <published>2018-08-30T12:30:00.000Z</published>
+    <updated>2018-08-30T04:36:44.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在大天朝因为有墙的存在，使人无法愉快的科学上网。作为一名技术宅，没办法谷歌是无法接受的。空闲也没的办法愉快的刷刷INS，刷刷推特，刷刷油管这
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.idea7.top/categories/Linux/"/>
+    
+    
+      <category term="VPN" scheme="http://www.idea7.top/tags/VPN/"/>
+    
+  </entry>
   
   <entry>
     <title>Code snippets</title>
